@@ -3,12 +3,17 @@
 ## Overview
 The **Waypoint Recorder** is a ROS 2 node that records waypoints based on odometry data and user input. It allows users to create waypoints manually via a service or automatically based on movement and rotation thresholds. The recorded waypoints are stored in a YAML file for later use.
 
+The Waypoint Planner is a ROS 2 node that allows a robot to navigate between predefined waypoints using the Nav2 NavigateToPose action. The waypoints are loaded from a file and can be accessed via their unique ID.
+
 ## Features
 - Subscribes to `/odom` topic to receive odometry data.
 - Provides a service `/create_waypoint` for manually adding waypoints.
 - Automatically records waypoints based on distance and rotation thresholds.
 - Saves waypoints to `waypoints.yaml` file.
 - Ensures waypoints are valid by checking for NaN/Inf values.
+- Reads waypoints from a **waypoints.yaml** file.
+- Sends navigation goals to the **Nav2 stack**.
+- Provides feedback on successful or failed navigation attempts.
 
 ## Installation
 
@@ -52,6 +57,10 @@ Waypoints are stored in `waypoints.yaml` in the current working directory. Examp
   y: 4.56
   theta: 1.23
 ```
+### 4. Run the waypoint planner node:
+```bash
+ros2 run waypoint_nav waypoint_planner
+```
 
 ## Parameters
 | Parameter | Description | Default Value |
@@ -68,5 +77,4 @@ Waypoints are stored in `waypoints.yaml` in the current working directory. Examp
 | Service | Type | Description |
 |---------|------|-------------|
 | `/create_waypoint` | `anscer_msgs/srv/Waypoint` | Manually create a waypoint |
-
 
