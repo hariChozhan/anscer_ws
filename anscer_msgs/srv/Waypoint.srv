@@ -1,0 +1,5 @@
+# Request: Create a waypoint at the current robot position with a given ID
+int32 id
+---
+# Response: Success status
+bool success
