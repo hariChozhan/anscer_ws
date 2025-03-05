@@ -15,12 +15,12 @@ The **Waypoint Recorder** is a ROS 2 node that records waypoints based on odomet
 1. Clone the repository into your ROS 2 workspace:
    ```bash
    cd ~/ros2_ws/src
-   git clone 
+   git clone https://github.com/hariChozhan/anscer_ws.git
    ```
 2. Navigate to your workspace and build the package:
    ```bash
    cd ~/ros2_ws
-   colcon build --packages-select waypoint_nav
+   colcon build 
    ```
 3. Source the workspace:
    ```bash
@@ -69,6 +69,4 @@ Waypoints are stored in `waypoints.yaml` in the current working directory. Examp
 |---------|------|-------------|
 | `/create_waypoint` | `anscer_msgs/srv/Waypoint` | Manually create a waypoint |
 
-## License
-This project is licensed under the MIT License.
 
